@@ -4,6 +4,7 @@
   "description": "Server side rendering project",
   "main": "index.js",
   "scripts": {
+    
   },
   "author": "",
   "license": "ISC",
