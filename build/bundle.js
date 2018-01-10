@@ -6983,6 +6983,8 @@ var _home2 = _interopRequireDefault(_home);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var app = (0, _express2.default)();
+
 app.get('/', function (req, res) {
   var content = (0, _server.renderToString)(_react2.default.createElement(_home2.default, null));
 
@@ -21943,7 +21945,18 @@ var Home = function Home() {
   return _react2.default.createElement(
     'div',
     null,
-    'I\'m the home component'
+    _react2.default.createElement(
+      'div',
+      null,
+      'I\'m the home component'
+    ),
+    _react2.default.createElement(
+      'button',
+      { onClick: function onClick() {
+          return console.log('Hi there!');
+        } },
+      'Press me!'
+    )
   );
 };
 
