@@ -6967,14 +6967,24 @@ module.exports = memoizeStringOnly;
 "use strict";
 
 
-var express = __webpack_require__(52);
-var React = __webpack_require__(20);
-var renderToString = __webpack_require__(105).renderToString;
-var Home = __webpack_require__(114).default;
-var app = express();
+var _express = __webpack_require__(52);
+
+var _express2 = _interopRequireDefault(_express);
+
+var _react = __webpack_require__(20);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _server = __webpack_require__(105);
+
+var _home = __webpack_require__(114);
+
+var _home2 = _interopRequireDefault(_home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 app.get('/', function (req, res) {
-  var content = renderToString(React.createElement(Home, null));
+  var content = (0, _server.renderToString)(_react2.default.createElement(_home2.default, null));
 
   res.send(content);
 });
