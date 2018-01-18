@@ -192,6 +192,10 @@ var _express2 = _interopRequireDefault(_express);
 
 var _reactRouterConfig = __webpack_require__(1);
 
+var _expressHttpProxy = __webpack_require__(21);
+
+var _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);
+
 var _renderer = __webpack_require__(9);
 
 var _renderer2 = _interopRequireDefault(_renderer);
@@ -208,6 +212,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
+app.use('/api', (0, _expressHttpProxy2.default)('http://react-ssr-api.herokuapp.com', {
+  proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
+    opts.header['x-forwarded-host'] = 'localhost:3000';
+    return opts;
+  }
+}));
 app.use(_express2.default.static('public'));
 
 app.get('*', function (req, res) {
@@ -523,6 +533,13 @@ exports.default = function () {
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
+
+/***/ }),
+/* 20 */,
+/* 21 */
+/***/ (function(module, exports) {
+
+module.exports = require("express-http-proxy");
 
 /***/ })
 /******/ ]);
